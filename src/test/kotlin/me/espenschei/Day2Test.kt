@@ -1,16 +1,13 @@
 package me.espenschei
 
 import io.kotest.matchers.shouldBe
+import me.espenschei.Resources.readFileAsList
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-
-@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Day2Test {
-    private val input = this.javaClass.classLoader.getResourceAsStream("day2_passwords.txt")
-        .bufferedReader()
-        .readLines()
+    private val input = readFileAsList("day2_passwords.txt")
 
     @Nested
     @DisplayName("First part")

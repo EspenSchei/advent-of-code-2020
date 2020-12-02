@@ -5,14 +5,9 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-
-@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class Day1Test {
     private val testNumbers = listOf(1721, 979, 366, 299, 675, 1456)
-    private val actualNumbers = this.javaClass.classLoader.getResourceAsStream("day1_numbers.txt")
-        .bufferedReader()
-        .readLines()
-        .map { it.toInt() }
+    private val actualNumbers = Resources.readFileAsIntList("day1_numbers.txt")
 
     @Nested
     @DisplayName("First part")
