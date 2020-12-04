@@ -8,4 +8,7 @@ object Resources {
 
     fun readFileAsIntList(name: String): List<Int> =
         readFileAsList(name).map { it.toInt() }
+
+    fun readFileAsText(name: String): String =
+        File(Resources.javaClass.classLoader.getResource(name)!!.toURI()).readText()
 }
