@@ -18,21 +18,15 @@ object Day4 {
             }
             .count { it }
 
-    private fun Pair<String, String>.isValid(): Boolean {
-        return try {
-            when (this.first) {
-                "byr" -> this.second.toInt() in 1920..2002
-                "iyr" -> this.second.toInt() in 2010..2020
-                "eyr" -> this.second.toInt() in 2020..2030
-                "hgt" -> this.second.isValidHeight()
-                "hcl" -> this.second.isValidHairColor()
-                "ecl" -> listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth").contains(this.second)
-                "pid" -> this.second.length == 9 && this.second.toInt() != -1
-                else -> true
-            }
-        } catch (e: Exception) {
-            false
-        }
+    private fun Pair<String, String>.isValid(): Boolean = when (this.first) {
+        "byr" -> this.second.toInt() in 1920..2002
+        "iyr" -> this.second.toInt() in 2010..2020
+        "eyr" -> this.second.toInt() in 2020..2030
+        "hgt" -> this.second.isValidHeight()
+        "hcl" -> this.second.isValidHairColor()
+        "ecl" -> listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth").contains(this.second)
+        "pid" -> this.second.length == 9 && this.second.toInt() != -1
+        else -> true
     }
 
     private fun String.isValidHeight(): Boolean = when (this.takeLast(2)) {
