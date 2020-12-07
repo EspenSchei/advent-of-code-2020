@@ -3,20 +3,19 @@ package me.espenschei
 object Day4 {
     private val REQ_FIELDS = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
 
-    fun first(passports: List<String>): Int =
-        passports.map { passport -> REQ_FIELDS.all { passport.contains(it) } }.count { it }
+    fun first(passports: List<String>): Int = passports
+        .map { passport -> REQ_FIELDS.all { passport.contains(it) } }.count { it }
 
-    fun second(passports: List<String>): Int =
-        passports
-            .filter { passport -> REQ_FIELDS.all { passport.contains(it) } }
-            .map { passport ->
-                val fields = passport.replace("\n", " ").split(" ")
-                fields.all { field ->
-                    val fieldSplit = field.split(":")
-                    (fieldSplit[0] to fieldSplit[1]).isValid()
-                }
+    fun second(passports: List<String>): Int = passports
+        .filter { passport -> REQ_FIELDS.all { passport.contains(it) } }
+        .map { passport ->
+            val fields = passport.replace("\n", " ").split(" ")
+            fields.all { field ->
+                val fieldSplit = field.split(":")
+                (fieldSplit[0] to fieldSplit[1]).isValid()
             }
-            .count { it }
+        }
+        .count { it }
 
     private fun Pair<String, String>.isValid(): Boolean = when (this.first) {
         "byr" -> this.second.toInt() in 1920..2002

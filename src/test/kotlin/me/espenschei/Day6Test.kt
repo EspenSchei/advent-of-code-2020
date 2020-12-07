@@ -1,7 +1,6 @@
 package me.espenschei
 
 import io.kotest.matchers.shouldBe
-import me.espenschei.Resources.readFileAsList
 import me.espenschei.Resources.readFileAsText
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
@@ -30,7 +29,6 @@ class Day6Test {
     @DisplayName("First part")
     inner class First {
 
-
         @Test
         fun `example answer`() {
 
@@ -50,6 +48,7 @@ class Day6Test {
     @Nested
     @DisplayName("Second part")
     inner class Second {
+
         @Test
         fun `example answer`() {
 
@@ -57,7 +56,6 @@ class Day6Test {
 
             answer shouldBe 6
         }
-
 
         @Test
         fun `actual answer`() {
